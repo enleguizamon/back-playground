@@ -1,8 +1,8 @@
 const User = require("./../models/userModel");
 
 class UserService {
-  getUsers() {
-    const query = User.find().exec();
+  getUsers(offset, limit) {
+    const query = User.find({}).skip(offset).limit(limit).exec();
     return query;
   }
 

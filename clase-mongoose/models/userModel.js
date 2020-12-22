@@ -5,7 +5,7 @@ const userSchema = mongoose.Schema({
     type: String, 
     require: true
   },
-  edad: {
+  age: {
     type: Number
   }
 })
