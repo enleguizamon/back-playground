@@ -31,6 +31,7 @@ class UserController {
     if (!data.name) {
       res.status(401).send("name requerido");
     }
+
     const modified = await this.userService.modifyUser(id, data);
     if (modified) {
       res.status(200).send("ok");
