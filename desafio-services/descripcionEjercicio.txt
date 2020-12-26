@@ -1,0 +1,124 @@
+1. Desafio services.md
+Queremos crear una API para el manejo de productos
+
+Modelo
+
+Nombre
+Precio
+Descripcion
+Categoria
+Cantidad en stock
+Entrega gratis
+Rutas
+
+[GET] /products
+
+[GET] /products/:id
+
+[POST] /products
+
+[PUT] /products/:id
+
+2. Free Shipping.md
+Crear un nuevo endpoint que devuelva solo los productos que tengan entrega gratis
+
+[GET] /products/freeshipping
+
+3. Discount.md
+Queremos agregar la propiedad discount a nuestro modelo de datos, pero al hacer esto 
+nos damos cuenta que todos los productos que teniamos agregados anteriormente no tenian 
+esa propiedad discount por lo que queremos crear una ruta 
+[PUT] /products/discount que busque todos nuestros productos y les agregue el campo:
+
+discount: 0
+
+4. Usuarios.md
+Queremos crear un nuevo modelo de datos (en el mismo proyecto) pero para usuarios
+
+Modelo
+
+Nombre
+Usuario
+Contraseña
+Edad
+Endpoints
+
+[GET] /users
+
+[GET] /users/:id
+
+[GET] /users/:handler
+
+[POST] /users
+
+5. Ventas.md
+Queremos crear un nuevo modelo de datos (en el mismo proyecto) para manejar las ventas de productos
+
+Modelo
+
+Producto: {}
+Usuario: String
+Fecha
+Endpoints
+
+[GET] /sales
+
+[GET] /sales/:id
+
+[GET] /sales/:user
+
+[POST] /sales
+
+{
+  product: {
+    price: 23,
+    name: "iPhone X",
+    category,
+    description,
+    freeShipping,
+    stock
+  },
+  user: "juani"
+}
+6. Paginado productos.md
+Nuestra cantidad de productos esta escalando mucho por lo que queremos establecer paginas de a 3 productos. Para eso vamos a modificar nuestro endpoint [GET] /products para que este limitado a los primeros tres productos.
+
+Para pasar de pagina vamos a usar el query param "page"
+
+Por ejemplo:
+
+http://localhost:3000/products?page=1 traer los primeros 3 productos
+
+http://localhost:3000/products?page=2 trae del producto 4 al 6
+
+http://localhost:3000/products?page=3 trae del producto 7 al 9
+
+7. Paginado ventas.md
+Queremos replicar el mismo modelo de paginado que hicimos para los productos pero para las ventas
+
+8. bcrypt.md
+Hasta ahora veniamos guardando nuestras contrasenas en texto plano. Empecemos a guardarlas hasheadas con bcrypt
+
+9.md
+Queremos crear un nuevo endpoint que nos devuelva productos relacionados para un producto en particular. Para calcular los relacionados vamos a usar la categoria del producto
+
+[GET] /:productId/relacionados
+
+910.md
+Mas vendidos
+
+Queremos crear un endpoint [GET] /sales/top que nos devuelva los productos ordenados por cantidad de ventas
+
+911.md
+Mas consumistas
+
+Queremos crear un endpoint [GET] /sales/top que nos devuelva los usuarios que mas ventas realizaron
+
+912.md
+Queremos modificar nuestro modelo de usuarios para que tenga un booleano "isAdmin" que por defecto esté en false
+
+913.md
+Queremos hacer que todos los metodos POST esten limitados a los usuarios que tengan isAdmin en valor true. Para esto queremos usar un middleware
+
+914.md
+Para hacer nuestra aplicación mas segura, queremos implementar passport y validar que exista una sesion valida antes de agregar nuevos productos o ventas
