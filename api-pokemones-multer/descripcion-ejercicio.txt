@@ -1,0 +1,23 @@
+Api Pokemones (Multer)
+multer.md
+Queremos una API que tenga:
+
+1.un método post que nos permita crear un pokemon, para eso le
+vamos a enviar solamente el nombre y una imagen a través de un 
+formulario (front)
+
+2.un método GET que nos permita ver toda la lista de pokemones 
+cargados con sus datos y nos permita paginar los resultados en 
+hasta 10 pokemones por request
+
+3.un método PUT que nos permita guardar editar un pokemon por 
+nombre o id (id de pokemon, no object id) para agregarle los 
+siguientes campos traidos de la poke api
+
+id
+height
+weight
+type
+4.un método DELETE que reciba como parámetro un nombre o id y en 
+vez de borrar la entrada le agregue un campo que se llame 
+disabled con el valor true
